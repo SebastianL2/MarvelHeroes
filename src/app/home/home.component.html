@@ -1,12 +1,4 @@
 
 <app-header/>
-@if (characters$ | async; as resultObject) {
-    <ul class="flex flex-col items-center overflow-y-auto h-screen">
-        @for (item of resultObject.data?.results; track item.name) {
-            <li class="mb-4">
-                <app-card [characterInfo]="item"/>
-            </li>
-        }
-    </ul>
- 
-}
+
+  <router-outlet></router-outlet>

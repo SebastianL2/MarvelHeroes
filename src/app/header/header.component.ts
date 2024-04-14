@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MasterService } from '../services/master.service';
@@ -19,7 +19,7 @@ export class HeaderComponent {
   divVisible: boolean = false;
   divVisible2: boolean = false;
   showMenu: boolean = true;
-
+  @Input('id') characterId!:String;
   public characters$!: Observable<CharacterDataWrapper>
   public searchResults$!: Observable<any[]>;
   heroes: any[] = [];
@@ -53,14 +53,15 @@ export class HeaderComponent {
     }
   }
   isComicsRoute(): boolean {
-    return this.router.url === '/comics';
+    const currentRoute = this.router.url;
+    return currentRoute !== '/home' && currentRoute !== '/';
   }
 
   ngOnInit(): void {
     
     this.service.GetMarvelHeroes().subscribe(
       (info: CharacterDataWrapper) => {
-        console.log(info.data); 
+        
         this.characters$ = of(info); 
       },
       (error) => {
@@ -69,7 +70,7 @@ export class HeaderComponent {
     );
 
     this.searchResults$ = this.searchService.getSearchResults();
-    console.log("datos searhc",this.searchResults$)
+    
   }
 
 

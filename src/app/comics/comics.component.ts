@@ -7,26 +7,28 @@ import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 import { ComicsCardsComponent } from '../comics-cards/comics-cards.component';
 import { Comic, ComicDataWrapper } from '../interfaces/comic-data-container';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-comics',
   standalone: true,
-  imports: [CommonModule,ComicsCardsComponent],
+  imports: [CommonModule,ComicsCardsComponent,RouterLink],
   templateUrl: './comics.component.html',
   styleUrl: './comics.component.css'
 })
-export class ComicsComponent implements OnInit {
+export class ComicsComponent  {
   
 
   public comics$!: Observable<ComicDataWrapper>
 
-  constructor(private service: MasterService) {}
+  constructor(private service: MasterService,private route: ActivatedRoute) {}
 
-  searchQuery: string = '1011334';
-
+  @Input('id') characterId!:string;
   ngOnInit(): void {
-    if (this.searchQuery.trim() !== '') {
-      this.service.GetMarvelComicsById(this.searchQuery).subscribe(response => {
+
+
+    if (this.characterId.trim() !== '') {
+      this.service.GetMarvelComicsById(this.characterId).subscribe(response => {
         console.log("comics", response);
         this.comics$ = of(response);
       });

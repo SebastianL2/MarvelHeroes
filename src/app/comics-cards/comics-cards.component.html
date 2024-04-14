@@ -1,24 +1,24 @@
-<div class="max-w-xs ml-10 mt-8 mr-2.5 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 relative">
+<div class="max-w-xs ml-10 mt-8 mr-2.5 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 relative comic-card"
+    (mouseenter)="showPopup = true" (mouseleave)="showPopup = false">
     <a href="#">
-     <img class="rounded-t-lg w-[50vh] h-[45vh]" [src]="getThumbnailUrl()" alt="" />
-
+        <img class="rounded-t-lg w-[50vh] h-[45vh]" [src]="getThumbnailUrl()" alt="" />
     </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{comicInfo.title}}</h5>
-            <h5 class="mb-2 text-sm opacity-75 text-gray-700 dark:text-gray-300">
-                <span style="font-weight: bold;">On Sale Date:</span> {{ onSaleDate() }}
-            </h5>
-        </a>
-        
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> {{ comicInfo.description ? comicInfo.description : 'Sin descripción' }}</p>
-        <h5 class="mb-2 text-sm opacity-75 text-gray-700 dark:text-gray-300">
-            <span style="font-weight: bold;">ModifiedDate:</span> {{ formatModified() }}
-        </h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">UPC: {{ comicInfo.upc ? comicInfo.upc : 'Sin UPC' }}</p>
-        
+    <a href="#" class="m-1">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate">{{comicInfo.title}}</h5>
+    </a>
+    <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2 p-2">
+        <div>
 
+            <h5 class="mb-1 text-sm opacity-75 text-gray-700 dark:text-gray-300">
+                <span class="font-bold">On Sale Date:</span> {{ onSaleDate() }}
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate">{{ comicInfo.description ? comicInfo.description : 'Sin descripción' }}</p>
+        </div>
+        <div>
+            <h5 class="mb-2 text-sm opacity-75 text-gray-700 dark:text-gray-300">
+                <span class="font-bold">ModifiedDate:</span> {{ formatModified() }}
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate">UPC: {{ comicInfo.upc ? comicInfo.upc : 'Sin UPC' }}</p>
+        </div>
     </div>
 </div>
-
-

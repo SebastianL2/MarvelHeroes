@@ -18,6 +18,7 @@ import { Comic, ComicDataWrapper } from '../interfaces/comic-data-container';
 export class ComicsCardsComponent {
   @Input () comicInfo!: Comic;
   constructor(private datePipe: DatePipe, private router: Router) {}
+  showPopup: boolean = false;
    getThumbnailUrl(): string {
      if (this.comicInfo && this.comicInfo.thumbnail) {
        const rtue=this.comicInfo.thumbnail.path +'.'+ this.comicInfo.thumbnail.extension;

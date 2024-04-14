@@ -18,7 +18,7 @@ import { Router, RouterOutlet } from '@angular/router';
 export class HeaderComponent {
   divVisible: boolean = false;
   divVisible2: boolean = false;
- 
+  showMenu: boolean = true;
 
   public characters$!: Observable<CharacterDataWrapper>
   public searchResults$!: Observable<any[]>;
@@ -35,7 +35,12 @@ export class HeaderComponent {
   toggleDiv2() {
     this.divVisible2 = !this.divVisible2;
   }
+  
 
+  toggleMenu(): void {
+    console.log("hola")
+    this.showMenu = !this.showMenu;
+  }
   searchHeroes() {
     if (this.searchQuery.trim() !== '') {
       

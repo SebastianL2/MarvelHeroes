@@ -23,7 +23,7 @@ export class ComicsCardsComponent {
      if (this.comicInfo && this.comicInfo.thumbnail) {
        const rtue=this.comicInfo.thumbnail.path +'.'+ this.comicInfo.thumbnail.extension;
        
-       console.log("ruta",this.comicInfo.thumbnail.path," > ",  this.comicInfo.thumbnail.extension)
+       
        return rtue;
      } else {
        return ''; 

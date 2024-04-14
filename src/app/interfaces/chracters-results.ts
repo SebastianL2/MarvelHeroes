@@ -12,61 +12,61 @@ export interface ChractersResults {
   series?: SeriesList;
 }
 
- interface Url {
+export interface Url {
     type?: string;
     url?: string;
   }
   
-  interface Image {
+  export  interface Image {
     path?: string;
     extension?: string;
   }
   
-  interface ComicList {
+  export interface ComicList {
     available?: number;
     returned?: number;
     collectionURI?: string;
     items?: ComicSummary[];
   }
   
-  interface StoryList {
+  export interface StoryList {
     available?: number;
     returned?: number;
     collectionURI?: string;
     items?: StorySummary[];
   }
   
-  interface EventList {
+  export interface EventList {
     available?: number;
     returned?: number;
     collectionURI?: string;
     items?: EventSummary[];
   }
   
-  interface SeriesList {
+  export interface SeriesList {
     available?: number;
     returned?: number;
     collectionURI?: string;
     items?: SeriesSummary[];
   }
   
-  interface ComicSummary {
+  export interface ComicSummary {
     resourceURI?: string;
     name?: string;
   }
   
-  interface StorySummary {
+  export interface StorySummary {
     resourceURI?: string;
     name?: string;
     type?: string;
   }
   
-  interface EventSummary {
+  export interface EventSummary {
     resourceURI?: string;
     name?: string;
   }
   
-  interface SeriesSummary {
+  export interface SeriesSummary {
     resourceURI?: string;
     name?: string;
   }

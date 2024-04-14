@@ -1,0 +1,10 @@
+@if (comics$ | async; as resultObject) {
+    <ul class="flex flex-col items-center overflow-y-auto h-screen">
+        @for (item of resultObject.data?.results; track item.title) {
+            <li class="mb-4">
+                <app-comics-cards [comicInfo]="item"/>
+            </li>
+        }
+    </ul>
+ 
+  }

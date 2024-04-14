@@ -7,10 +7,11 @@ import { HomeComponent } from '../home/home.component';
 import { Observable, of } from 'rxjs';
 import { CharacterDataWrapper } from '../interfaces/character-data-container';
 import { CardComponent } from '../card/card.component';
+import { Router, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,FormsModule,HomeComponent,CardComponent],
+  imports: [CommonModule,FormsModule,HomeComponent,CardComponent,RouterOutlet],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -24,7 +25,7 @@ export class HeaderComponent {
   heroes: any[] = [];
 
   searchQuery: string = '';
-  constructor(private service:MasterService, private searchService:SearchService){}
+  constructor(private service:MasterService, private searchService:SearchService, private router: Router){}
   clearSearch() {
     this.searchQuery = '';
   }
@@ -46,7 +47,9 @@ export class HeaderComponent {
       });
     }
   }
- 
+  isComicsRoute(): boolean {
+    return this.router.url === '/comics';
+  }
 
   ngOnInit(): void {
     
